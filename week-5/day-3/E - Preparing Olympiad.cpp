@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#deanse ll long long
+#define ll long long
 using namespace std;
 int main()
 {
