@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define endl "\n"
+using namespace std;
+
+ll n, w, h;
+
+bool can(ll v)
+{
+    return (floor(v / w) * floor(v / h) >= n);
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    cin >> w >> h >> n;
+
+    ll low = 1, high = 1, ans = 0;
+
+    while (!can(high))
+    {
+        high *= 2;
+    }
+
+    while (low <= high)
+    {
+        ll mid = (low + high) / 2;
+
+        if (can(mid))
+        {
+            ans = mid;
+            high = mid - 1;
+        }
+        else
+            low = mid + 1;
+    }
+
+    cout << ans << endl;
+}
