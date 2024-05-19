@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 #define ll long long
 #define endl "\n"
@@ -18,17 +17,17 @@ int main()
 
     ll ans = 0;
     ll i = 0, j = 0;
-    unordered_set<int> s;
+    set<int> s;
 
     while (i < n && j < n)
     {
-        if (i < n && !s.count(v[i]))
+        if (!s.count(v[i]))
         {
             s.insert(v[i]);
             ans = max(ans, i - j + 1);
             i++;
         }
-        while (i < n && s.count(v[i]))
+        else if (s.count(v[i]))
         {
             s.erase(v[j]);
             j++;
